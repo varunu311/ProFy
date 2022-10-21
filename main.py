@@ -1,6 +1,8 @@
 import os                 # os is used to get environment variables IP & PORT
+import backend
 from flask import Flask   # Flask is the web app that we will customize
 from flask import render_template, redirect, url_for, request
+
 
 app = Flask(__name__)     # create an app
 
@@ -18,7 +20,11 @@ def Sign_In():
     if request.method == "POST":
         email = request.form["email"]
         password = request.form["pass"]
-        return redirect(url_for("user",usr=email))
+        if backend.validateUser(email, password) == True:
+            return redirect(url_for("user",usr=email))
+        else:
+            print("Login Failed: Password and Email do not match")
+            return render_template('Sign_in.html')
     else:
         return render_template('Sign_in.html')
 
