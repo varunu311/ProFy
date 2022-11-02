@@ -33,11 +33,21 @@ def Sign_In():
     else:
         return render_template('Sign_in.html')
 
-@app.route("/email")
+@app.route("/email", methods=["POST","GET"])
 def user():
     if "email" in session:
         email = session["email"]
-        return f"<h1>Welcome {backend.getName(email)} To Your Home Page</h1>"
+        username = backend.getUsername(email)
+        print(username)
+        if request.method == "POST":
+            project = request.form["project"]
+            print(project)
+            backend.addProject(username, project)
+            print("Project successfully Added!!!")
+            return render_template('User.html')
+        else:
+            return render_template('User.html')
+
     else:
         return redirect(url_for("Sign_In"))
 

@@ -21,9 +21,18 @@ def getName(email):
 
 #def getAllData(Username, Password):
 
-#def addProject():
-
-
+def addProject(username, project):
+    sql = "INSERT INTO p_data (username, project) VALUES (%s, %s)"
+    val = (username,project)
+    mycursor.execute(sql,val)
+    conn.commit
+    
+def getUsername(email):
+    sql = "select username from u_data where email=%s"
+    mycursor.execute(sql, (email,))
+    username = mycursor.fetchone()
+    username = ''.join(username)
+    return username
 
 #def removeProject():
 
