@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body {
+    background-color: black;;
+}
+header
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 40px 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    margin-left: 35%;
+}
+header ul
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+header ul li
+{
+	list-style: none;
+	margin-left: 20px;
+
+}
+header ul li a
+{
+	text-decoration: none;
+	padding: 6px 15px;
+	color:  #fff;
+	border-radius: 20px;
+}
+header ul li a:hover,
+header ul li a.active
+{
+	background: #fff;
+	color:#042f66;
+
+}
+
+.container
+{
+    margin-top: 7rem;
+}
+
+.addprojecttextbox {
+    position: center;
+    border: none;
+    outline: none;
+    background-color: rgb(165, 165, 165);
+    padding: 1rem 1.5rem;
+    border-radius: 100px;
+    width: 45%;
+    transition: background 0.5s;
+	margin-bottom: 10px;
+}
+.addtasktextbox {
+    position: center;
+    border: none;
+    outline: none;
+    background-color: rgb(165, 165, 165);
+    padding: 1rem 1.5rem;
+    border-radius: 100px;
+    width: 45%;
+    transition: background 0.5s;
+	margin-bottom: 10px;
+}
+
+.addproject button {
+    background: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .5s;
+}
+.addproject button:hover{
+    background: white;
+    color: black;
+    padding: 1rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .5s;
+}
+.addtask button {
+    background: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .5s;
+}
+.addtask button:hover{
+    background: white;
+    color: black;
+    padding: 1rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .5s;
+}
+.view {
+ margin-top: 2rem;
+ background-color: rgba(255, 255, 255, 0.651);
+ height: 500px;
+ width: 100%;
+ position: center;
+ border-radius: 50px;
+}
