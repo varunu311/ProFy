@@ -10,10 +10,25 @@ header
 	left: 0;
 	width: 100%;
 	padding: 40px 100px;
-	display: flex;
+	display: absolute;
 	justify-content: space-between;
 	align-items: center;
-    margin-left: 35%;
+    align-content:center ;
+}
+
+h1 {
+    position: absolute;
+    margin-left: 42%;
+	top: 0;
+	left: 0;
+    color:#fff;
+    font-size: 50px;
+	display: absolute;
+	justify-content: space-between;
+	align-items: center;
+    align-content:center ;
+    justify-content: center;
+    justify-items: center;
 }
 header ul
 {
@@ -42,17 +57,19 @@ header ul li a.active
 	color:#042f66;
 
 }
-
 .container
 {
     margin-top: 7rem;
 }
 
+.a{
+    color: white;
+}
 .addprojecttextbox {
     position: center;
     border: none;
     outline: none;
-    background-color: rgb(165, 165, 165);
+    background-color: rgb(173, 173, 173);
     padding: 1rem 1.5rem;
     border-radius: 100px;
     width: 45%;
@@ -63,7 +80,30 @@ header ul li a.active
     position: center;
     border: none;
     outline: none;
-    background-color: rgb(165, 165, 165);
+    background-color: rgb(172, 167, 167);
+    padding: 1rem 1.5rem;
+    border-radius: 100px;
+    width: 45%;
+    transition: background 0.5s;
+	margin-bottom: 10px;
+}
+
+.addprojecttextbox:focus {
+    position: center;
+    border: none;
+    outline: none;
+    background-color: rgb(255, 249, 249);
+    padding: 1rem 1.5rem;
+    border-radius: 100px;
+    width: 45%;
+    transition: background 0.5s;
+	margin-bottom: 10px;
+}
+.addtasktextbox:focus {
+    position: center;
+    border: none;
+    outline: none;
+    background-color: rgb(255, 255, 255);
     padding: 1rem 1.5rem;
     border-radius: 100px;
     width: 45%;
@@ -108,10 +148,31 @@ header ul li a.active
     transition: background .5s;
 }
 .view {
+ margin-left: .5rem;
  margin-top: 2rem;
  background-color: rgba(255, 255, 255, 0.651);
  height: 500px;
+ position: relative;
+
  width: 100%;
  position: center;
  border-radius: 50px;
+ opacity: .8;
+ padding-top: 2rem;
+}
+
+.content {
+    margin-left: 2rem;
+}
+
+.content h3:hover {
+    background-color: rgb(0, 0, 0);
+    border-radius: 10rem;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(148, 147, 147);
+    color:white;
+    transition: .25s;
+    opacity: .8;
 }

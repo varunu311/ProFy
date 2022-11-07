@@ -37,8 +37,8 @@ def getAllProjects(username):
     return projects
 
 def addProject(username, project):
-    sql = "INSERT INTO p_data (username, project) VALUES (%s, %s)"
-    val = (username,project)
+    sql = "INSERT INTO p_data (username, project, task) VALUES (%s, %s, %s);"
+    val = (username,project,"none")
     mc.execute(sql,val)
     conn.commit
     print("Done")
@@ -64,24 +64,38 @@ def validateUser(email, password):
     mc.execute(sql, (email,))
     c_pass = mc.fetchone()
     c_pass = ''.join(c_pass)
-
+    if c_pass is None:
+        return False
     if c_pass == password:
         return True
     else:
         return False
 
 def create_user(username,name,email,password):
-    sql = "INSERT INTO u_data (name, username, pass, email) VALUES (%s, %s, %s, %s)"
-    val = (name,username,password, email)
-    mc.execute(sql, val)
-    conn.commit()
-    print("Done")
+    sql = "select username from u_data where username=%s"
+    mc.execute(sql, (username,))
+    u_name = mc.fetchone()
+    
+    sql = "select email from u_data where email=%s"
+    mc.execute(sql, (email,))
+    e_mail = mc.fetchone()
+    
+    if u_name is None and e_mail is None:
+        sql = "INSERT INTO u_data (name, username, pass, email) VALUES (%s, %s, %s, %s)"
+        val = (name,username,password, email)
+        mc.execute(sql, val)
+        conn.commit()
+        print("Account Created Successfully")
+        return True
+    else:
+        print("Account Already Exists")
+        return False
 
 def create_database():
     mc.execute('CREATE DATABASE profydatabase;')
     conn.commit()
     mc.execute('USE profydatabase;')
-    mc.execute('CREATE TABLE p_data (username TEXT,project TEXT);')
+    mc.execute('CREATE TABLE p_data (username TEXT,project TEXT, task TEXT);')
     conn.commit()
     mc.execute('CREATE TABLE u_data (name TEXT,username TEXT,pass TEXT,email TEXT);')
     conn.commit()
@@ -89,4 +103,7 @@ def create_database():
 
 #Run This On First Run
 #create_database()
-#create_user("varunu311","Varun","varunu311@gmail.com","Upadhyay_12")
+#create_user("varunu311","Varun Upadhyay","varunu311@gmail.com","Upadhyay_12")
+#addProject("varunu311","Software Development")
+#addProject("varunu311","Web Development")
+#getAllProjects("varunu311")
