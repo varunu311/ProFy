@@ -41,7 +41,7 @@ def user():
         name = backend.getName(email)
         print(username)
         if request.method == "POST":
-            if request.method['field'] == "addProject":
+            if request.method == "POST":
                 project = request.form["project"]
                 print(project)
                 backend.addProject(username, project)

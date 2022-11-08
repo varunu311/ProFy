@@ -60,16 +60,23 @@ def getUsername(email):
 
 
 def validateUser(email, password):
+    
     sql = "select pass from u_data where email=%s"
     mc.execute(sql, (email,))
     c_pass = mc.fetchone()
-    c_pass = ''.join(c_pass)
+    
+    sql = "select email from u_data where email=%s"
+    mc.execute(sql, (email,))
+    e_mail = mc.fetchone()
+
     if c_pass is None:
         return False
-    if c_pass == password:
-        return True
-    else:
-        return False
+    else: 
+        c_pass = ''.join(c_pass)
+        if c_pass == password:
+            return True
+        else:
+            return False
 
 def create_user(username,name,email,password):
     sql = "select username from u_data where username=%s"
