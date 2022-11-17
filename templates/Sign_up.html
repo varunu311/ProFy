@@ -7,14 +7,14 @@
     <body>
         <div>
             <video autoplay loop muted plays-inline class="back-video">
-                <source src="static/images/birds.mp4" type="video/mp4">
+                <source src="static/images/Mesh.mp4" type="video/mp4">
             </video>
             <header>
                 <ul>
-				    <li><a href="http://127.0.0.1:5000/home">Home</a></li>
-				    <li><a href="http://127.0.0.1:5000/Sign_In">Login</a></li>
-				    <li><a href="http://127.0.0.1:5000/Sign_Up" class="active">SignUp</a></li>
-				    <li><a href="http://127.0.0.1:5000/">About</a></li>
+				    <li><a href="http://127.0.0.1:5001/home">Home</a></li>
+				    <li><a href="http://127.0.0.1:5001/Sign_In">Login</a></li>
+				    <li><a href="http://127.0.0.1:5001/Sign_Up" class="active">SignUp</a></li>
+				    <li><a href="http://127.0.0.1:5001/">About</a></li>
 			    </ul>
             </header>
         <div class="login-card-container">
@@ -25,7 +25,7 @@
                 <form class="login-card-form" method = post>
                     <div class="form-item">
                         <span class="form-item-icon material-symbols-rounded">Person</span>
-                        <input type="text" name="name" method ="post" placeholder="Full Name" required autofocus>
+                        <input type="text" name="name" method ="post" placeholder="Name" required autofocus>
                     </div>
                     <div class="form-item">
                         <span class="form-item-icon material-symbols-rounded">Person</span>
@@ -37,7 +37,11 @@
                     </div>
                     <div class="form-item">
                         <span class="form-item-icon material-symbols-rounded">lock</span>
-                        <input type="text" name="pass" method ="post" placeholder="Password" required autofocus>
+                        <input type="password" name="pass" method ="post" placeholder="Password" required autofocus>
+                    </div>
+                    <div class="form-item">
+                        <span class="form-item-icon material-symbols-rounded">lock</span>
+                        <input type="password" name="c_pass" method ="post" placeholder="Confirm Password" required autofocus>
                     </div>
                     <button type="SignUp">Sign UP</button>
                 </form>

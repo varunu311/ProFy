@@ -24,8 +24,9 @@ def getPassword(email):
 
 def getAllData(email):
     sql = "select * from u_data where email=%s"
-    mc.execute(sql, (email,))
+    mc.execute(sql, email)
     data = mc.fetchall()
+    data = data.replace(",","").replace("(","").replace(")","")
     print(data)
     return data
 
@@ -33,20 +34,59 @@ def getAllProjects(username):
     sql = "select project from p_data where username=%s"
     mc.execute(sql, (username,))
     projects = mc.fetchall()
+    projects = [pro for x in projects for pro in x]
     print(projects)
     return projects
 
+def getAllTasks(username, project):
+    sql = "select task from p_data where username=%s AND project=%s"
+    mc.execute(sql, (username,project))
+    tasks = mc.fetchall()
+    task = [pro for x in tasks for pro in x]
+    print(task)
+    return task
+
 def addProject(username, project):
+    print(project)
     sql = "INSERT INTO p_data (username, project, task) VALUES (%s, %s, %s);"
     val = (username,project,"none")
     mc.execute(sql,val)
     conn.commit
     print("Done")
 
-#def removeProject():
+def addTask(username, project, task):
+    print(project)
+    sql = "INSERT INTO p_data (username, project, task) VALUES (%s, %s, %s);"
+    val = (username,project,task)
+    mc.execute(sql,val)
+    conn.commit
+    print("Done")
+
+
 def removeProject(username,project):
     sql = "DELETE FROM p_data WHERE username=%s AND project=%s"
     val = (username,project)
+    mc.execute(sql,val)
+    conn.commit
+    print("Done")
+
+def removeTask(username,project, task):
+    sql = "DELETE FROM p_data WHERE username=%s AND project=%s AND task =%s"
+    val = (username,project,task)
+    mc.execute(sql,val)
+    conn.commit
+    print("Done")
+
+def editTask(username, project, old_task, new_task):
+    sql = "UPDATE p_data SET task=%s WHERE username=%s AND project=%s AND task=%s;"
+    val = (new_task,username, project, old_task)
+    mc.execute(sql,val)
+    conn.commit
+    print("Done")
+
+def editProject(username,old_project,new_project):
+    sql = "UPDATE p_data SET project=%s WHERE username=%s AND project=%s;"
+    val = (new_project,username, old_project)
     mc.execute(sql,val)
     conn.commit
     print("Done")

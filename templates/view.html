@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login Page</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/user_style.css') }}"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
+    <body>
+        <div>
+        <header>
+            <header>
+                <ul>
+				    <li><a href="http://127.0.0.1:5001/ap">Add Project</a></li>
+				    <li><a href="http://127.0.0.1:5001/rp">Remove Project</a></li>
+				    <li><a href="http://127.0.0.1:5001/at">Add Task</a></li>
+				    <li><a href="http://127.0.0.1:5001/rt">Remove Task</a></li>
+                    <li><a href="http://127.0.0.1:5001/et">Edit Task</a></li>
+                    <li><a href="http://127.0.0.1:5001/ep">Edit Project</a></li>
+                    <li><a href="http://127.0.0.1:5001/view" class="active">View</a></li>
+			    </ul>
+        </header>
+
+        <form class = "view">
+            <div class = "content">
+                {% for project in projects %}
+                    <h2>{{project}}</h2>
+                {% endfor %}
+                <h3>Task 1</h3>
+                <h3>Task 2</h3>
+                <h3>Task 3</h3>
+                <h3>Task 4</h3>
+            </div>
+        </form>
+    </div>
+</div>
+    </body>
+</html>
