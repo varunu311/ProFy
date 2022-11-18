@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>Login Page</title>
-        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/user_style.css') }}"> 
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}"> 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
     <body>
@@ -20,13 +20,17 @@
                     <li><a href="http://127.0.0.1:5001/logout">Log Out</a></li>
 			    </ul>
         </header>
-        <div class = "container">
-            <form class="addproject", method ='post'>
-                <div class="editproject">
-                    <input class = "addprojecttextbox" type="text" name="old_project" method ="post" placeholder="Old Project" required autofocus>
-                    <input class = "addprojecttextbox" type="text" name="new_project" method ="post" placeholder="New Project" required autofocus>
+    <div class = "login-card-container">
+        <div class = "login-card">
+            <div class = "login-card-header">
+                <h1>Edit Project</h1>
+            </div>
+            <form class="login-card-form", method ='post'>
+                <div class="form-item">
+                    <input class = "form-item-textbox" type="text" name="old_project" method ="post" placeholder="Old Project" required autofocus>
+                    <input class = "form-item-textbox" type="text" name="new_project" method ="post" placeholder="New Project" required autofocus>
                 </div>
-                <button type="submit" name = "submit-button">Edit Project</button>
+                <button type="submit" name = "submit-button">Edit Task</button>
             </form>
         </div>
     </div>

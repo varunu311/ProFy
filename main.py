@@ -15,6 +15,9 @@ app.secret_key = "XWK09182TYPK01W"
 
 ########################################################## HOME PAGE #########################################################
 @app.route('/')
+def main():
+    return render_template('home.html')
+
 @app.route('/home')
 def home():
     if "email" in session:
@@ -53,10 +56,10 @@ def view():
         name = backend.getName(email)
 
         if request.method == "POST":
-            return render_template('view.html',name = backend.getName(email), projects = backend.getAllProjects(username))
+            return render_template('view.html',name = backend.getName(email), username = username, projects = backend.getAllProjects(username))
         
         else:
-            return render_template('view.html', name = backend.getName(email), projects = backend.getAllProjects(username))
+            return render_template('view.html', name = backend.getName(email),username = username, projects = backend.getAllProjects(username))
     else:
         return redirect(url_for("Sign_In"))
 

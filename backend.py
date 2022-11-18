@@ -55,12 +55,29 @@ def addProject(username, project):
     print("Done")
 
 def addTask(username, project, task):
-    print(project)
-    sql = "INSERT INTO p_data (username, project, task) VALUES (%s, %s, %s);"
-    val = (username,project,task)
-    mc.execute(sql,val)
-    conn.commit
-    print("Done")
+    sql = "select username from u_data"
+    mc.execute(sql, (username,))
+    u = mc.fetchall()
+    u = [pro for x in u for pro in x]
+
+    sql = "select task from p_data where username=%s AND project=%s"
+    mc.execute(sql, (username,project, ))
+    t = mc.fetchall()
+    #t = ''.join(t)
+    t= [pro for x in t for pro in x]
+
+    if username in u: 
+        
+        if task not in t:
+            sql = "INSERT INTO p_data (username, project, task) VALUES (%s, %s, %s);"
+            val = (username,project,task)
+            mc.execute(sql,val)
+            conn.commit
+            print(task, "Successfully Added To", project)
+        else:
+            print("This Task Already Exists In the Project")
+    else:
+        print("This User Does Not Exist")
 
 
 def removeProject(username,project):
@@ -150,7 +167,13 @@ def create_database():
 
 #Run This On First Run
 #create_database()
-#create_user("varunu311","Varun Upadhyay","varunu311@gmail.com","Upadhyay_12")
+#create_user("Varunu311","Varun Upadhyay","varunu311@gmail.com","Upadhyay_12")
+#create_user("Varunu211","vu","varunu211@gmail.com","Upadhyay_12")
 #addProject("varunu311","Software Development")
 #addProject("varunu311","Web Development")
 #getAllProjects("varunu311")
+#addProject("varunu311", "ProFy")
+#getAllProjects("varunu311")
+#addTask("varunu311", "ProFy", "Frontend")
+#addTask("Varunu211", "ProFy", "Frontend")
+#getAllTasks("varunu311", "ProFy")

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 body {
-    background-color: black;;
+    background-color: rgb(1, 37, 70);;
 }
 header
 {
@@ -75,7 +75,13 @@ header ul li a.active
 }
 .container
 {
-    margin-top: 7rem;
+    display: grid;
+    align-items: center;
+    align-content: center;
+    place-content: center;
+    margin-top: 20rem;
+    height: 100%;
+    width: 100%;
 }
 
 .a{
@@ -88,7 +94,7 @@ header ul li a.active
     background-color: rgb(173, 173, 173);
     padding: 1rem 1.5rem;
     border-radius: 100px;
-    width: 45%;
+    width: 400px;
     transition: background 0.5s;
 	margin-bottom: 10px;
 }
@@ -128,9 +134,10 @@ header ul li a.active
 }
 
 .addproject button {
-    background: black;
-    color: white;
+    background: rgb(0, 72, 135);
+    color: rgb(255, 255, 255);
     padding: 1rem;
+    border-style: none;
     border-radius: 100px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -164,13 +171,12 @@ header ul li a.active
     transition: background .5s;
 }
 .view {
- margin-left: .5rem;
- margin-top: 2rem;
+ margin-left: 0rem;
+ margin-top: 15rem;
  background-color: rgba(255, 255, 255, 0.651);
  height: 500px;
+ width: 1900px;
  position: relative;
-
- width: 100%;
  position: center;
  border-radius: 50px;
  opacity: .8;
