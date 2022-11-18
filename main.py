@@ -52,14 +52,14 @@ def signout():
 def view():
     if "email" in session:
         email = session["email"]
-        username = backend.getUsername(email)
+        u_name = backend.getUsername(email)
         name = backend.getName(email)
 
         if request.method == "POST":
-            return render_template('view.html',name = backend.getName(email), username = username, projects = backend.getAllProjects(username))
+            return render_template('view.html',name = backend.getName(email), username = u_name, projects = backend.getAllProjects(u_name))
         
         else:
-            return render_template('view.html', name = backend.getName(email),username = username, projects = backend.getAllProjects(username))
+            return render_template('view.html', name = backend.getName(email),username = u_name, projects = backend.getAllProjects(u_name))
     else:
         return redirect(url_for("Sign_In"))
 

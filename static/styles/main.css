@@ -4,7 +4,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    background: rgb(1, 34, 72);
+    background: linear-gradient(rgb(0, 0, 0), rgb(1, 44, 94),rgb(0, 11, 24));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +57,7 @@ header ul li a.active
 .login-card {
     margin-top: 50px;
     width: 450px;
-    background: rgb(255,255,255,.5);
+    background: rgba(255, 255, 255, 0.412);
     padding: 4rem;
     border-radius: 20px;
     position: relative;
@@ -65,8 +65,8 @@ header ul li a.active
 }
 .login-card:hover {
     margin-top: 50px;
-    width: 500px;
-    background: rgb(255,255,255,.5);
+    width: 455px;
+    background: rgba(255, 255, 255, 0.606);
     padding: 4rem;
     border-radius: 20px;
     position: relative;
@@ -240,22 +240,24 @@ header ul li a.active
 }
 
 .view-content {
-    background-color:rgb(236, 236, 236);
     padding: 0rem;
     border-radius: 20px;
     transition: 2s;
     margin-bottom: 5px;
     width: 500px; 
     margin-left: 15px;
+    border-style: solid;
+    border-color: white;
+    background-color:white;
 }
 
 .view-content:hover {
-    background-color:rgba(0, 58, 116, 0.372);
+    background-color:rgba(255, 255, 255, 0.885);
     padding: .5rem;
     border-radius: 20px;
     transition: 2s;
     margin-bottom: 5px;
-    width: 1800px;
+    width: 1675px;
     margin-left: 55px;
 }
 
@@ -270,21 +272,21 @@ header ul li a.active
 }
 
 .view {
- margin-left: 0rem;
- margin-top: 10rem;
- background-color: rgba(255, 255, 255, 0.651);
- height: 600px;
- width: 1900px;
- position: relative;
- position: center;
+ margin-top: 7rem;
+ background-color:linear-gradient(rgb(1, 44, 94),black,rgb(1, 44, 94));
+ height: 700px;
+ width: 1800px;
  border-radius: 50px;
  opacity: .8;
  padding-top: 2rem;
+ border-style: solid;
+ border-color: white;
 }
 
 .view-task {
     padding-left: 2rem;
     transition: .5s;
+    color: white;
 }
 
 .view-task:hover {
@@ -293,7 +295,8 @@ header ul li a.active
     border-radius: 20px;
     margin-left: 5rem;
     transition: .5s;
-    width: 85%;
+    width: 90%;
+    color:black;
 }
 .task {
     font-weight:lighter;
@@ -305,6 +308,7 @@ header ul li a.active
     position: relative;
     font-weight: lighter;
     place-content: center;
+    color: white;
 }
 .back-video {
     position: absolute;
