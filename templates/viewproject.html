@@ -21,13 +21,16 @@
 			    </ul>
         </header>
         <div class = "view">
-            <h1 class = "view-title">List Of Projects</h1>
-                {% for project in projects %}
-                    <div class="view-content">
-                        <a class = "view-content-text" href ="view/{{project}}">{{project}}</a>
+            <h1 class = "view-title">List Of Tasks</h1>
+            <div class = "content">
+                {% for task in tasks %}
+                    <div class = "view-task">
+                        <h2 class = "task">{{task}}</h2>
                     </div>
                 {% endfor %}
+            </div>
         </div>
-        </div>
+    </div>
+</div>
     </body>
 </html>

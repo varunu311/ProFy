@@ -63,6 +63,15 @@ def view():
     else:
         return redirect(url_for("Sign_In"))
 
+@app.route("/view/<project>", methods=["POST","GET"])
+def viewproject(project):
+    if "email" in session:
+        email = session["email"]
+        username = backend.getUsername(email)
+        return render_template('viewproject.html', tasks = backend.getAllTasks(username, project))
+    else:
+        return redirect(url_for("Sign_In"))
+    
 ########################################################## SIGN_UP PAGE #########################################################
 @app.route('/Sign_Up', methods=["POST","GET"])
 @app.route('/Register', methods=["POST","GET"])
@@ -84,10 +93,6 @@ def Sign_Up():
             return render_template('Sign_up.html')
     else:
         return render_template('Sign_up.html')
-################################################################################
-################################################################################
-################################################################################
-
 
 @app.route('/ap', methods=["POST","GET"])
 def ap():

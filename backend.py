@@ -31,7 +31,7 @@ def getAllData(email):
     return data
 
 def getAllProjects(username):
-    sql = "select project from p_data where username=%s"
+    sql = "select DISTINCT project from p_data where username=%s"
     mc.execute(sql, (username,))
     projects = mc.fetchall()
     projects = [pro for x in projects for pro in x]
@@ -42,9 +42,13 @@ def getAllTasks(username, project):
     sql = "select task from p_data where username=%s AND project=%s"
     mc.execute(sql, (username,project))
     tasks = mc.fetchall()
-    task = [pro for x in tasks for pro in x]
-    print(task)
-    return task
+    tasks = [pro for x in tasks for pro in x]
+    
+    while "none" in tasks:
+        tasks.remove("none")
+
+    print(tasks)
+    return tasks
 
 def addProject(username, project):
     print(project)

@@ -216,6 +216,96 @@ header ul li a.active
     transition: background .75s;
 }
 
+.container
+{
+    display: grid;
+    align-items: center;
+    align-content: center;
+    place-content: center;
+    position: relative;
+    margin-top: 20rem;
+    height: 100%;
+    width: 100%;
+}
+
+.container:hover
+{
+    display: grid;
+    align-items: center;
+    align-content: center;
+    place-content: center;
+    margin-top: 20rem;
+    height: 100%;
+    width: 100%;
+}
+
+.view-content {
+    background-color:rgb(236, 236, 236);
+    padding: 0rem;
+    border-radius: 20px;
+    transition: 2s;
+    margin-bottom: 5px;
+    width: 500px; 
+    margin-left: 15px;
+}
+
+.view-content:hover {
+    background-color:rgba(0, 58, 116, 0.372);
+    padding: .5rem;
+    border-radius: 20px;
+    transition: 2s;
+    margin-bottom: 5px;
+    width: 1800px;
+    margin-left: 55px;
+}
+
+.view-content-text {
+    display: grid;
+    place-content: center;
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+    font-size: 32px;
+    padding: .5rem;
+    width:100%;
+}
+
+.view {
+ margin-left: 0rem;
+ margin-top: 10rem;
+ background-color: rgba(255, 255, 255, 0.651);
+ height: 600px;
+ width: 1900px;
+ position: relative;
+ position: center;
+ border-radius: 50px;
+ opacity: .8;
+ padding-top: 2rem;
+}
+
+.view-task {
+    padding-left: 2rem;
+    transition: .5s;
+}
+
+.view-task:hover {
+    padding-left: 2rem;
+    background-color: white;
+    border-radius: 20px;
+    margin-left: 5rem;
+    transition: .5s;
+    width: 85%;
+}
+.task {
+    font-weight:lighter;
+
+}
+
+.view-title {
+    display:grid;
+    position: relative;
+    font-weight: lighter;
+    place-content: center;
+}
 .back-video {
     position: absolute;
     right:0;
