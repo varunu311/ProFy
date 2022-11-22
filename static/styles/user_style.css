@@ -117,7 +117,25 @@ header ul li a
  padding-top: 2rem;
 }
 
+
+.button_box{
+    background-color: white;
+}
+
+.sort_button{
+    background-color:rgb(236, 236, 236);
+    padding: 1rem;
+    border-radius: 20px;
+    transition: 1s;
+    margin-bottom: 5px;
+    width: 200px;
+    text-transform: uppercase;
+}
+
+
 .content {
     margin-left: 2rem;
 }
+
+
 

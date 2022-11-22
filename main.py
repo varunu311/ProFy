@@ -63,6 +63,25 @@ def view():
     else:
         return redirect(url_for("Sign_In"))
 
+@app.route("/viewsorted", methods=["POST", "GET"])
+def viewsorted():
+    if "email" in session:
+        email = session["email"]
+        u_name = backend.getUsername(email)
+        name = backend.getName(email)
+        projects = backend.getAllProjects(u_name)
+        sortedproject = projects.sort()
+        print(sortedproject)
+
+        if request.method == "POST":
+            return render_template('view.html',name = backend.getName(email), username = u_name, projects = projects)
+        
+        else:
+            return render_template('view.html', name = backend.getName(email),username = u_name, projects = projects)
+    else:
+        return redirect(url_for("Sign_In"))
+
+
 @app.route("/view/<project>", methods=["POST","GET"])
 def viewproject(project):
     if "email" in session:

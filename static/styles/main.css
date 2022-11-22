@@ -100,6 +100,18 @@ header ul li a.active
     color:rgb(255, 255, 255);
     text-align: center;
     margin-top: 0;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    border-style: solid;
+    border-color: white;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-radius: 50px;
+
+
     
 
 
@@ -281,11 +293,13 @@ header ul li a.active
  padding-top: 2rem;
  border-style: solid;
  border-color: white;
+ display: grid;
+ place-items: center;
 }
 
 .view-task {
     padding-left: 2rem;
-    transition: .5s;
+    transition: 1s;
     color: white;
 }
 
@@ -293,8 +307,8 @@ header ul li a.active
     padding-left: 2rem;
     background-color: white;
     border-radius: 20px;
-    margin-left: 5rem;
-    transition: .5s;
+    margin-left: 2rem;
+    transition: 1s;
     width: 90%;
     color:black;
 }
@@ -316,6 +330,38 @@ header ul li a.active
     bottom: 0;
     z-index: -1;
 }
+
+
+
+.sort_button{
+    background-color:rgb(131, 145, 154);
+    padding: 8px;
+    border-radius: 20px;
+    transition: 1s;
+    margin-top: 5%;
+    margin-bottom: 5px;
+    width: 200px;
+    text-decoration: none;
+    color: black;
+    display: grid;
+    place-items: center;
+}
+
+.sort_button:hover{
+    background-color:rgb(91, 117, 133);
+    padding: 10px;
+    border-radius: 20px;
+    transition: 1s;
+    margin-top: 5%;
+    margin-bottom: 5px;
+    width: 200px;
+    text-decoration: none;
+    color: black;
+    border-style: solid;
+    border-color: rgb(16, 16, 16);
+}
+
+
 
 @media (min-aspect-ratio: 16/9){
     .back-video {
