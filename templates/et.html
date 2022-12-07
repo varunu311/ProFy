@@ -2,22 +2,45 @@
 <html lang="en">
     <head>
         <title>Login Page</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}"> 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
+    <param id = "username" value={{name}}></param>
+        <script type="text/javascript" username = {{name}}>
+            $(document).ready(function(){
+                var socket = io.connect("http://localhost:5000")
+                
+                socket.on('connect', function(){
+                    socket.send("User connected!")
+                });
+
+                socket.on('message', function(data){
+                    $('#messages').append($('<p>').text(data));
+                });
+
+                $('#sendBtn').on('click', function(){
+                    socket.send($('#username').val() + ': ' + $('#message').val());
+                    $('#message').val('');
+                });
+
+            });
+        </script>
     <body>
         <div>
-        <header>
             <header>
                 <ul>
-				    <li><a href="http://127.0.0.1:5001/ap">Add Project</a></li>
-				    <li><a href="http://127.0.0.1:5001/rp">Remove Project</a></li>
-				    <li><a href="http://127.0.0.1:5001/at">Add Task</a></li>
-				    <li><a href="http://127.0.0.1:5001/rt">Remove Task</a></li>
-                    <li><a href="http://127.0.0.1:5001/et" class="active">Edit Task</a></li>
-                    <li><a href="http://127.0.0.1:5001/ep">Edit Project</a></li>
-                    <li><a href="http://127.0.0.1:5001/view">View</a></li>
-                    <li><a href="http://127.0.0.1:5001/logout">Log Out</a></li>
+                    <a class="name">{{name}}</a>
+
+				    <li><a href="http://localhost:5000/ap">Add Project</a></li>
+				    <li><a href="http://localhost:5000/rp">Remove Project</a></li>
+				    <li><a href="http://localhost:5000/at">Add Task</a></li>
+				    <li><a href="http://localhost:5000/rt">Remove Task</a></li>
+                    <li><a href="http://localhost:5000/et" class="active">Edit Task</a></li>
+                    <li><a href="http://localhost:5000/ep">Edit Project</a></li>
+                    <li><a href="http://localhost:5000/view">View</a></li>
+                    <li><a href="http://localhost:5000/logout">Log Out</a></li>
 			    </ul>
         </header>
         <div class="login-card-container">
@@ -35,6 +58,20 @@
             </form>
             </div>
           </div>
+        </div>
+        <div class = "message-container">
+            <div class = "message-box-title">
+                <h2>Global Chat</h2>
+            </div>
+            
+            <div class="message-box">
+                <div id="messages" class="messages"></div>
+            </div>
+            
+            <div class="messenging-inputs">
+                <input class = "message-input" type="text" id="message" placeholder="Message" required>
+                <button class = "send-button" id="sendBtn">Send</button>    
+            </div>
         </div>
     </body>
 </html>

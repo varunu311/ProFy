@@ -159,6 +159,12 @@ def create_user(username,name,email,password):
         print("Account Already Exists")
         return False
 
+def get_task_datetime(email, project, task): 
+    sql = "SELECT datetime FROM p_data where email=%s and project=%s and task=%s" 
+    val = (email,project, task)
+    mc.execute(sql, val)
+    mc.fetchone()
+    return datetime
 def create_database():
     mc.execute('CREATE DATABASE profydatabase;')
     conn.commit()
@@ -171,6 +177,7 @@ def create_database():
 
 #Run This On First Run
 #create_database()
+#create_user("Diya123","Diyu Patel", "diya@gmail.com", "app123")
 #create_user("Varunu311","Varun Upadhyay","varunu311@gmail.com","Upadhyay_12")
 #create_user("Varunu211","vu","varunu211@gmail.com","Upadhyay_12")
 #addProject("varunu311","Software Development")

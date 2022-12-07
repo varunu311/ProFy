@@ -11,15 +11,19 @@ body {
 }
 header
 {
+    background-color: rgba(58, 66, 150, 0.225);
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
-	padding: 40px 100px;
+	width: 95%;
+	padding: 30px 100px;
 	display: absolute;;
 	justify-content: space-between;
 	align-items: center;
     align-content: center;
+    border-radius: 40px;
+    margin-top: 30px;
+    margin-left: 40px;
 }
 header ul
 {
@@ -49,11 +53,26 @@ header ul li a.active
 
 }
 .login-card-container {
-    margin-top: 10rem;
+    margin-top: 2rem;
     display: grid;
-    place-content: center;
-}
+    padding-left: 0px;
 
+}
+.name{
+    padding-left: 0px;
+    margin-right: 20%;
+    color: white;
+    font-weight: lighter;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+    border-radius:10px;
+
+}
+.pro_img {
+    margin-right: 2%;
+}
 .login-card {
     margin-top: 50px;
     width: 450px;
@@ -110,12 +129,8 @@ header ul li a.active
     padding-top: 3rem;
     padding-bottom: 3rem;
     border-radius: 50px;
-
-
-    
-
-
 }
+
 .login-card-logo img {
     width: 150px
 }
@@ -361,15 +376,73 @@ header ul li a.active
     border-color: rgb(16, 16, 16);
 }
 
+.message-container {
+    place-content: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    height: 600px;
+    width: 450px;
+    padding:0px;
+    margin-top: 175px;
+    margin-left: 900px;
+}
 
+.messages{
+    color: white;
+}
 
+.message-box{
+    margin: 5px;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: rgb(4, 33, 88);
+    height: 480px;
+}
+
+.messenging-inputs {
+    width: 500px;
+    padding: 0px;
+    margin-left:10px;
+}
+
+.message-input{
+    border-radius: 20px;
+    width:325px;
+    height: 30px;
+    background-color:#042e6671;
+    border-style: none;
+}
+.send-button {
+    width: 100px;
+    height: 30px;
+    border-radius: 50px;
+    background-color:#042f66;
+    color: white;
+    border-style: none;
+}
+
+.send-button:hover {
+    width: 100px;
+    height: 30px;
+    border-radius: 50px;
+    background-color:white;
+    color:#042f66;
+    border-style: none;
+    transition: 1s;
+}
+.message-box-title {
+    margin-left:150px;
+}
 @media (min-aspect-ratio: 16/9){
     .back-video {
         width: 100%;
         height: auto;
+ }
 }
+
 @media (max-aspect-ratio: 16/9){
     .back-video {
         width: auto;
         height: 100%;
+ }
 }

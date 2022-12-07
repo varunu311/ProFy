@@ -3,11 +3,18 @@ import backend
 from flask import session
 from flask import Flask  
 from flask import render_template, redirect, url_for, request
-
+from flask_socketio import SocketIO, send
 
 app = Flask(__name__)     # create an app
 app.secret_key = "XWK09182TYPK01W"
+app.config['SECRET'] = "XWK09182TYPK01W"
+si = SocketIO(app, cors_allowed_orgins="https://localhost")
 
+@si.on('message')
+def handle_message(message):
+    print("Received message: "+ message)
+    if message != "User connected!":
+        send(message, broadcast=True)
 
 # @app.route is a decorator. It gives the function "index" special powers.
 # In this case it makes it so anyone going to "your-url/" makes this function
@@ -125,10 +132,10 @@ def ap():
             backend.addProject(username, project)
             print("Project Created")
             backend.getAllProjects(username)
-            return render_template('ap.html')
+            return render_template('ap.html', name = backend.getName(email))
         
         else:
-            return render_template('ap.html')
+            return render_template('ap.html', name = backend.getName(email))
 
     return redirect(url_for("view"))
 
@@ -144,10 +151,10 @@ def rp():
             backend.removeProject(username, project)
             print("Project Removed")
             backend.getAllProjects(username)
-            return render_template('rp.html')
+            return render_template('rp.html', name = backend.getName(email))
         
         else:
-            return render_template('rp.html')
+            return render_template('rp.html', name = backend.getName(email))
             
     return redirect(url_for("view"))
 
@@ -164,10 +171,10 @@ def at():
             backend.addTask(username, project, task)
             print("Task Added")
             backend.getAllTasks(username, project)
-            return render_template('at.html')
+            return render_template('at.html', name = backend.getName(email))
         
         else:
-            return render_template('at.html')
+            return render_template('at.html', name = backend.getName(email))
             
     return redirect(url_for("view"))
 
@@ -184,10 +191,10 @@ def rt():
             backend.removeTask(username, project, task)
             print("Task Removed")
             backend.getAllTasks(username, project)
-            return render_template('rt.html')
+            return render_template('rt.html', name = backend.getName(email))
         
         else:
-            return render_template('rt.html')
+            return render_template('rt.html', name = backend.getName(email))
             
     return redirect(url_for("view"))
 
@@ -204,10 +211,10 @@ def ep():
             backend.editProject(username, old_project, new_project)
             print("Project Edited")
             backend.getAllProjects(username)
-            return render_template('ep.html')
+            return render_template('ep.html', name = backend.getName(email))
         
         else:
-            return render_template('ep.html')
+            return render_template('ep.html', name = backend.getName(email))
             
     return redirect(url_for("view"))
 
@@ -224,11 +231,12 @@ def et():
             backend.editTask(username, project, old_task, new_task)
             print("Task Edited")
             backend.getAllTasks(username, project)
-            return render_template('et.html')
+            return render_template('et.html', name = backend.getName(email))
         
         else:
-            return render_template('et.html')
+            return render_template('et.html', name = backend.getName(email))
             
     return redirect(url_for("view"))
 
-app.run(host=os.getenv('IP', '127.0.0.1'),port=int(os.getenv('PORT', 5001)),debug=True)
+
+si.run(app,host="localhost",port=5000,debug=True)
