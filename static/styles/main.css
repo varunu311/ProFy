@@ -56,6 +56,7 @@ header ul li a.active
     margin-top: 2rem;
     display: grid;
     padding-left: 0px;
+    margin-left: 500px;
 
 }
 .name{
@@ -378,13 +379,13 @@ header ul li a.active
 
 .message-container {
     place-content: center;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.704);
     border-radius: 20px;
     height: 600px;
     width: 450px;
     padding:0px;
     margin-top: 175px;
-    margin-left: 900px;
+    margin-left: 200px;
 }
 
 .messages{
@@ -395,7 +396,7 @@ header ul li a.active
     margin: 5px;
     border-radius: 20px;
     padding: 10px;
-    background-color: rgb(4, 33, 88);
+    background-color: rgba(4, 33, 88, 0.792);
     height: 480px;
 }
 

@@ -94,7 +94,7 @@ def viewproject(project):
     if "email" in session:
         email = session["email"]
         username = backend.getUsername(email)
-        return render_template('viewproject.html', tasks = backend.getAllTasks(username, project))
+        return render_template('viewproject.html', tasks = backend.getAllTasks(username, project),name = backend.getName(email))
     else:
         return redirect(url_for("Sign_In"))
     
