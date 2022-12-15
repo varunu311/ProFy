@@ -18,6 +18,7 @@
                     <li><a href="http://localhost:5000/et">Edit Task</a></li>
                     <li><a href="http://localhost:5000/ep">Edit Project</a></li>
                     <li><a href="http://localhost:5000/view" class="active">View</a></li>
+                    <li><a href="http://localhost:5000/progress">Progress</a></li>
                     <li><a href="http://localhost:5000/logout">Log Out</a></li>
 			    </ul>
             </header>
@@ -28,10 +29,18 @@
                             <a class = "view-content-text" href ="view/{{project}}">{{project}}</a>
                         </div>
                     {% endfor %}
-                    <div class = "button_box">
-                        <a type= "button" class="sort_button" href = "viewsorted" > Sort Projects</a>
-                    </div>
+                    <!--<div class = "button_box">
+                        <a type= "button" class="sort_button" href = "viewsorted" > Sort Projects (a-z)</a>
+                    </div> -->
 
+                    <div class="sort-flex-container">
+                        <div id="sort-a-z-button" class = "button_box">
+                            <a type= "button" class="sort_button" href = "viewsorted" > Sort Projects (a-z)</a>
+                        </div>
+
+                        <div id="sort-z-a-button" class = "button_box">
+                            <a type = "button" class= "reversesort_button" href = "reversesorted" > Sort Projects (z-a)</a>
+                        </div>
             </div>
         </div>
     </body>

@@ -88,6 +88,24 @@ def viewsorted():
     else:
         return redirect(url_for("Sign_In"))
 
+@app.route("/reversesorted", methods=["POST", "GET"])
+def reversesorted():
+    if "email" in session:
+        email = session["email"]
+        u_name = backend.getUsername(email)
+        name = backend.getName(email)
+        projects = backend.getAllProjects(u_name)
+        sortedproject = projects.sort(reverse = True)
+        print(sortedproject)
+
+        if request.method == "POST":
+            return render_template('view.html',name = backend.getName(email), username = u_name, projects = projects)
+        
+        else:
+            return render_template('view.html', name = backend.getName(email),username = u_name, projects = projects)
+    else:
+        return redirect(url_for("Sign_In"))
+        
 
 @app.route("/view/<project>", methods=["POST","GET"])
 def viewproject(project):
@@ -97,6 +115,30 @@ def viewproject(project):
         return render_template('viewproject.html', tasks = backend.getAllTasks(username, project),name = backend.getName(email))
     else:
         return redirect(url_for("Sign_In"))
+
+@app.route('/progress', methods=["POST", "GET"])
+def progress():
+    if "email" in session:
+        email = session["email"]
+        username = backend.getUsername(email)
+        name = backend.getName(email)
+        projects = backend.getAllProjects(username)
+
+        if request.method == "POST":
+            project = request.form["project"]
+            task = request.form["task"]
+            backend.addTask(username, project, task)
+            print("Task Added")
+            backend.getAllTasks(username, project)
+
+
+            return render_template('progress.html',name = backend.getName(email), username = username, projects = projects)
+
+
+        else:
+            return render_template('progress.html', name = backend.getName(email), username = username, projects = projects)
+
+    return redirect(url_for("view"))
     
 ########################################################## SIGN_UP PAGE #########################################################
 @app.route('/Sign_Up', methods=["POST","GET"])

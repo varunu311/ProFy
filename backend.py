@@ -177,7 +177,7 @@ def create_database():
 
 #Run This On First Run
 #create_database()
-#create_user("Diya123","Diyu Patel", "diya@gmail.com", "app123")
+#create_user("Diya123","Diya Patel", "diya@gmail.com", "app123")
 #create_user("Varunu311","Varun Upadhyay","varunu311@gmail.com","Upadhyay_12")
 #create_user("Varunu211","vu","varunu211@gmail.com","Upadhyay_12")
 #addProject("varunu311","Software Development")

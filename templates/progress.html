@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login Page</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/progress.css') }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
+
+
+ <script>
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+
+
+
+<style>
+
+.kanban-board {
+  display: flex;
+    padding: 200px;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: sans-serif;
+
+}
+
+.kanban-block {
+  padding: 10px;
+  width: 30.5%;
+  min-width: 14rem;
+  min-height: 20px;
+  border-radius: 0.3rem;
+  top: 50px;
+
+
+
+
+}
+
+#todo {
+  background-color: #8f551b;
+}
+
+#inprogress {
+  background-color: #bd7745;
+}
+
+#done {
+  background-color: #ea9451;
+}
+
+</style>
+    <body>
+        <div>
+        <header>
+            <header>
+                <ul>
+                <li><a href="http://localhost:5000/ap" class="active">Add Project</a></li>
+                <li><a href="http://localhost:5000/rp">Remove Project</a></li>
+                <li><a href="http://localhost:5000/at">Add Task</a></li>
+                <li><a href="http://localhost:5000/rt">Remove Task</a></li>
+                    <li><a href="http://localhost:5000/et">Edit Task</a></li>
+                    <li><a href="http://localhost:5000/ep">Edit Project</a></li>
+                    <li><a href="http://localhost:5000/view">View</a></li>
+                    <li><a href="http://localhost:5000/progress">Progress</a></li>
+                    <li><a href="http://localhost:5000/logout">Log Out</a></li>
+
+             </ul>
+        </header>
+
+
+
+        <div class="kanban-board">
+            <div class="kanban-block" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <strong>To Do</strong>
+
+                <div class="task" id="task1" draggable="true" contentEditable="true" ondragstart="drag(event)">
+                    <input placeholder="click here to right">
+                </div>
+                <div class="task" id="task2" draggable="true" contentEditable="true" ondragstart="drag(event)">
+                    <input placeholder="click here to right">
+                </div>
+                <div class="task" id="task3" draggable="true" contentEditable="true" ondragstart="drag(event)">
+                    <input placeholder="click here to right">
+                </div>
+                <div class="task" id="task4" draggable="true" contentEditable="true" ondragstart="drag(event)">
+                    <input placeholder="click here to right">
+                </div>
+                <div class="task" id="task5" draggable="true" contentEditable="true" ondragstart="drag(event)">
+                    <input placeholder="click here to right">
+                </div>
+                <div class="task" id="task6" draggable="true" contentEditable="true" ondragstart="drag(event)">
+                    <input placeholder="click here to right">
+                </div>
+            </div>
+            <div class="kanban-block" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <strong>In Progress</strong>
+            </div>
+            <div class="kanban-block" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <strong>Done</strong>
+            </div>
+        </div>
+    </div>
+
+
+
+    </body>
+</html>
